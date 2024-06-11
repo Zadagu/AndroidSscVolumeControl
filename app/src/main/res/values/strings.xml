@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SscVolumeControl</string>
+    <string name="title_activity_device_scan">DeviceScanActivity</string>
+    <string name="title_activity_ssh_path_selection">SscPathSelectionActivity</string>
+</resources>
