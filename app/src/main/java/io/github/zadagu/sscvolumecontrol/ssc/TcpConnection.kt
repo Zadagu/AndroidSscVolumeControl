@@ -1,4 +1,4 @@
-package de.sscvolumecontrol.ssc
+package io.github.zadagu.sscvolumecontrol.ssc
 
 
 import kotlinx.coroutines.sync.Mutex

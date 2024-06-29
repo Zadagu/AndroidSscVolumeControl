@@ -1,5 +1,5 @@
 @file:OptIn(ExperimentalTvMaterial3Api::class)
-package de.sscvolumecontrol.ui.composables
+package io.github.zadagu.sscvolumecontrol.ui.composables
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -22,8 +22,8 @@ import androidx.tv.material3.ExperimentalTvMaterial3Api
 import androidx.tv.material3.Icon
 import androidx.tv.material3.MaterialTheme
 import androidx.tv.material3.Text
-import de.sscvolumecontrol.R
-import de.sscvolumecontrol.ssc.Device
+import io.github.zadagu.sscvolumecontrol.R
+import io.github.zadagu.sscvolumecontrol.ssc.Device
 
 @Composable
 fun CheckedIcon(

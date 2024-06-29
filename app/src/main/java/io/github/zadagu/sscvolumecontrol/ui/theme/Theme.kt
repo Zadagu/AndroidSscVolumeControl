@@ -1,4 +1,4 @@
-package de.sscvolumecontrol.ui.theme
+package io.github.zadagu.sscvolumecontrol.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable

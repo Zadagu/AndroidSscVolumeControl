@@ -1,4 +1,4 @@
-package de.sscvolumecontrol
+package io.github.zadagu.sscvolumecontrol
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -16,7 +16,7 @@ import android.os.IBinder
 import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
-import de.sscvolumecontrol.ssc.wrapElement
+import io.github.zadagu.sscvolumecontrol.ssc.wrapElement
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.serialization.json.JsonPrimitive

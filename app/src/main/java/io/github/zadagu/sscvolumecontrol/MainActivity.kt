@@ -1,4 +1,4 @@
-package de.sscvolumecontrol
+package io.github.zadagu.sscvolumecontrol
 
 import android.app.Activity
 import android.content.Intent
@@ -33,10 +33,10 @@ import androidx.compose.ui.input.key.KeyEventType
 import androidx.compose.ui.input.key.type
 import androidx.tv.material3.MaterialTheme
 import androidx.tv.material3.Surface
-import de.sscvolumecontrol.ssc.Device
-import de.sscvolumecontrol.ssc.limits
-import de.sscvolumecontrol.ui.composables.DeviceList
-import de.sscvolumecontrol.ui.theme.SscVolumeControlTheme
+import io.github.zadagu.sscvolumecontrol.ssc.Device
+import io.github.zadagu.sscvolumecontrol.ssc.limits
+import io.github.zadagu.sscvolumecontrol.ui.composables.DeviceList
+import io.github.zadagu.sscvolumecontrol.ui.theme.SscVolumeControlTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

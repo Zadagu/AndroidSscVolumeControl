@@ -1,4 +1,4 @@
-package de.sscvolumecontrol.ssc
+package io.github.zadagu.sscvolumecontrol.ssc
 
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject

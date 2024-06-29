@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "de.sscvolumecontrol"
+    namespace = "io.github.zadagu.sscvolumecontrol"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "de.sscvolumecontrol"
+        applicationId = "io.github.zadagu.sscvolumecontrol"
         minSdk = 21
         targetSdk = 34
         versionCode = 1

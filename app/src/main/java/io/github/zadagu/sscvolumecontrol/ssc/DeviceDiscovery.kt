@@ -1,4 +1,4 @@
-package de.sscvolumecontrol.ssc;
+package io.github.zadagu.sscvolumecontrol.ssc;
 import android.net.wifi.WifiManager
 import android.util.Log
 import kotlinx.coroutines.CoroutineScope

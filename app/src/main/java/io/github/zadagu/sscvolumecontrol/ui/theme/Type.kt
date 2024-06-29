@@ -1,4 +1,4 @@
-package de.sscvolumecontrol.ui.theme
+package io.github.zadagu.sscvolumecontrol.ui.theme
 
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily

@@ -1,4 +1,4 @@
-package de.sscvolumecontrol.ui.composables
+package io.github.zadagu.sscvolumecontrol.ui.composables
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,7 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import de.sscvolumecontrol.ssc.SscLimits
+import io.github.zadagu.sscvolumecontrol.ssc.SscLimits
 
 @Composable
 fun LimitItem(path: String, limits: SscLimits, onClick: (path: String) -> Unit) {

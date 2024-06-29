@@ -1,4 +1,4 @@
-package de.sscvolumecontrol
+package io.github.zadagu.sscvolumecontrol
 
 import android.app.Activity
 import android.content.Intent
@@ -22,13 +22,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.tv.material3.Text
-import de.sscvolumecontrol.ssc.Device
-import de.sscvolumecontrol.ssc.SscLimits
-import de.sscvolumecontrol.ssc.SscLimitsType
-import de.sscvolumecontrol.ssc.getOscSchemaRecursive
-import de.sscvolumecontrol.ssc.getLimitsForSchema
-import de.sscvolumecontrol.ui.composables.LimitsList
-import de.sscvolumecontrol.ui.theme.SscVolumeControlTheme
+import io.github.zadagu.sscvolumecontrol.ssc.Device
+import io.github.zadagu.sscvolumecontrol.ssc.SscLimits
+import io.github.zadagu.sscvolumecontrol.ssc.SscLimitsType
+import io.github.zadagu.sscvolumecontrol.ssc.getOscSchemaRecursive
+import io.github.zadagu.sscvolumecontrol.ssc.getLimitsForSchema
+import io.github.zadagu.sscvolumecontrol.ui.composables.LimitsList
+import io.github.zadagu.sscvolumecontrol.ui.theme.SscVolumeControlTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

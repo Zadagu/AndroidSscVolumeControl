@@ -1,4 +1,4 @@
-package de.sscvolumecontrol
+package io.github.zadagu.sscvolumecontrol
 
 import android.net.wifi.WifiManager
 import android.util.Log
@@ -23,10 +23,10 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Observer
 import androidx.tv.material3.ExperimentalTvMaterial3Api
 import androidx.tv.material3.Surface
-import de.sscvolumecontrol.ssc.Device
-import de.sscvolumecontrol.ssc.DeviceDiscovery
-import de.sscvolumecontrol.ui.composables.DeviceList
-import de.sscvolumecontrol.ui.theme.SscVolumeControlTheme
+import io.github.zadagu.sscvolumecontrol.ssc.Device
+import io.github.zadagu.sscvolumecontrol.ssc.DeviceDiscovery
+import io.github.zadagu.sscvolumecontrol.ui.composables.DeviceList
+import io.github.zadagu.sscvolumecontrol.ui.theme.SscVolumeControlTheme
 
 
 class DeviceScanActivity : ComponentActivity() {

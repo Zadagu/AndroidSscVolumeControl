@@ -21,12 +21,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SscVolumeControl">
         <activity
-            android:name=".DeviceScanActivity"
+            android:name="io.github.zadagu.sscvolumecontrol.DeviceScanActivity"
             android:exported="false"
             android:label="@string/title_activity_device_scan"
             android:theme="@style/Theme.SscVolumeControl" />
         <activity
-            android:name=".MainActivity"
+            android:name="io.github.zadagu.sscvolumecontrol.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,12 +36,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SscPathSelectionActivity"
+            android:name="io.github.zadagu.sscvolumecontrol.SscPathSelectionActivity"
             android:exported="false"
             android:label="@string/title_activity_ssh_path_selection"
             android:theme="@style/Theme.SscVolumeControl" />
         <service
-            android:name=".VolumeService"
+            android:name="io.github.zadagu.sscvolumecontrol.VolumeService"
             android:enabled="true"
             android:exported="false"
             android:foregroundServiceType="connectedDevice">

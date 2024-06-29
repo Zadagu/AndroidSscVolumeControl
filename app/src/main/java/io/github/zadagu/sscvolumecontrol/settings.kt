@@ -1,7 +1,7 @@
-package de.sscvolumecontrol
+package io.github.zadagu.sscvolumecontrol
 
 import android.content.Context
-import de.sscvolumecontrol.ssc.Device
+import io.github.zadagu.sscvolumecontrol.ssc.Device
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.decodeFromString
