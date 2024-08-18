@@ -110,7 +110,7 @@ fun SscPathSelectionActivityContent(
             TopAppBar(
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
-                    titleContentColor = MaterialTheme.colorScheme.primary,
+                    titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
                 ),
                 title = {
                     Text("Please select the loudness property of your speakers!")

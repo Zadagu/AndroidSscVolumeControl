@@ -303,7 +303,8 @@ fun deviceSearchButton(devices: MutableState<List<Device>>, modifier: Modifier, 
     fun buttonContent() {
         Icon(
             imageVector = Icons.Default.Search,
-            contentDescription = "Search for devices"
+            contentDescription = "Search for devices",
+            modifier = Modifier.padding(end = 4.dp),
         )
         Text("Search for devices")
     }
