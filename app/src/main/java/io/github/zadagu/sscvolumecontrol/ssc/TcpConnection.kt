@@ -25,6 +25,10 @@ class TcpConnection(private val ipv6Address: String) : ConnectionBase() {
         tcpInputStream = BufferedReader(InputStreamReader(tcpSocket!!.getInputStream()))
     }
 
+    override fun isConnected(): Boolean {
+        return tcpSocket?.isConnected ?: false
+    }
+
     override fun disconnect() {
         if (sendMutex.isLocked) {
             throw IllegalStateException("Cannot disconnect while sending")

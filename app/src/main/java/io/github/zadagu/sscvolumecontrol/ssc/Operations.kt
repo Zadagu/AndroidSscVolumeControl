@@ -9,7 +9,7 @@ import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 
-suspend fun getOscSchemaRecursive(device: Connection, path: List<String>? = null): List<String> {
+suspend fun getOscSchemaRecursive(device: SscConnection, path: List<String>? = null): List<String> {
     suspend fun getOscSchema(path: List<String>? = null): JsonArray {
         val payload = if (path == null) {
             JsonNull
@@ -49,12 +49,12 @@ suspend fun getOscSchemaRecursive(device: Connection, path: List<String>? = null
     return knownSchema
 }
 
-suspend fun ping(device: Connection, value: JsonPrimitive): JsonPrimitive {
+suspend fun ping(device: SscConnection, value: JsonPrimitive): JsonPrimitive {
     val response = device.send(wrapElement("osc.ping", value))
     return unwrapElement("osc.ping", response) as JsonPrimitive
 }
 
-suspend fun limits(device: Connection, path: String): SscLimits {
+suspend fun limits(device: SscConnection, path: String): SscLimits {
     val payload = JsonArray(listOf(wrapElement(path, JsonNull)))
     val response = device.send(wrapElement("osc.limits", payload))
     val limitsWrapped = unwrapElement("osc.limits", response).jsonArray.get(0).jsonObject
@@ -73,8 +73,11 @@ suspend fun limits(device: Connection, path: String): SscLimits {
     )
 }
 
-suspend fun getLimitsForSchema(device: Connection, sscSchema: List<String>): Map<String, SscLimits> {
-    return(sscSchema.filter { !it.startsWith("osc.") } .map {
+suspend fun getLimitsForSchema(
+    device: SscConnection,
+    sscSchema: List<String>
+): Map<String, SscLimits> {
+    return (sscSchema.filter { !it.startsWith("osc.") }.map {
         it to limits(device, it)
     }.toMap())
 }

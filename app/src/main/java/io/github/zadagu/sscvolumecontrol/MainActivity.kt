@@ -138,7 +138,7 @@ class MainActivity : ComponentActivity() {
             return
         }
         val device = devices[0]
-        device.connect() {
+        device.withConnection() {
             try {
                 val limits = limits(it, sscVolumePath.value)
                 speakerMinimumVolume.value = limits.min ?: 0.0f

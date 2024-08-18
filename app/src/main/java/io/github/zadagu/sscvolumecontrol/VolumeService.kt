@@ -16,6 +16,7 @@ import android.os.IBinder
 import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
+import io.github.zadagu.sscvolumecontrol.ssc.Device
 import io.github.zadagu.sscvolumecontrol.ssc.wrapElement
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -40,7 +41,8 @@ class VolumeService : Service() {
             }
 
         val notificationIntent = Intent(this, MainActivity::class.java)
-        val pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0)
+        val pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent,
+            PendingIntent.FLAG_IMMUTABLE)
 
         val notification = NotificationCompat.Builder(this, channelId)
             .setContentTitle("Volume Service")
@@ -77,6 +79,7 @@ class VolumeService : Service() {
     inner class VolumeObserver(private val context: Context, handler: Handler) : ContentObserver(handler) {
         private val audioManager: AudioManager = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
         private val scope = CoroutineScope(Dispatchers.IO)
+        private var controlledDevices = listOf<Device>()
 
         override fun onChange(selfChange: Boolean) {
             val currentVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
@@ -93,14 +96,22 @@ class VolumeService : Service() {
             }
             Log.i("VolumeService", "Volume changed to $currentVolume, setting target volume to $targetVolume")
 
+            val newControlledDevices = getControlledDevices(context)
+            if (newControlledDevices != controlledDevices) {
+                // Since the connection instances are bound to the devices, we only want to update the list of devices, if there really is a change
+                // Otherwise, we would have to re-establish the connection to the devices.
+                controlledDevices = newControlledDevices
+                Log.i("VolumeService", "Controlled devices changed to ${controlledDevices.map { it.ipv6Address }}")
+            }
+
             scope.launch {
-                getControlledDevices(context).forEach() { device ->
+                controlledDevices.forEach() { device ->
                     run {
-//                        device.connect() {
-//                            it.send(
-//                                wrapElement(settings.sscVolumePath, JsonPrimitive(targetVolume))
-//                            )
-//                        }
+                        device.withConnection() {
+                            it.send(
+                                wrapElement(settings.sscVolumePath, JsonPrimitive(targetVolume))
+                            )
+                        }
                     }
                 }
             }

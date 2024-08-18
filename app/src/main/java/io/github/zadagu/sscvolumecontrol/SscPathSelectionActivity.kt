@@ -76,7 +76,7 @@ class SscPathSelectionActivity : ComponentActivity() {
 
     private fun loadSchema(device: Device) {
         scope.launch {
-            device.connect {
+            device.withConnection {
                 isLoadingSchema.value = true
                 val schema = getOscSchemaRecursive(it)
                 val schemaWithLimits = getLimitsForSchema(it, schema)
