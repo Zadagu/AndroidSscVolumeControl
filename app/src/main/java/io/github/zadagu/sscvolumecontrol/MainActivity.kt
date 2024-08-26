@@ -8,31 +8,36 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.InputChip
-import androidx.compose.material3.Slider
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Button
-import androidx.tv.material3.Text
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.InputChip
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Slider
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.unit.dp
-import androidx.tv.material3.ExperimentalTvMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.ui.input.key.key
-import androidx.compose.ui.input.key.onKeyEvent
 import androidx.compose.ui.input.key.Key
 import androidx.compose.ui.input.key.KeyEventType
+import androidx.compose.ui.input.key.key
+import androidx.compose.ui.input.key.onKeyEvent
 import androidx.compose.ui.input.key.type
+import androidx.compose.ui.unit.dp
+import androidx.tv.material3.ExperimentalTvMaterial3Api
 import androidx.tv.material3.MaterialTheme
 import androidx.tv.material3.Surface
+import androidx.tv.material3.Text
 import io.github.zadagu.sscvolumecontrol.ssc.Device
 import io.github.zadagu.sscvolumecontrol.ssc.limits
 import io.github.zadagu.sscvolumecontrol.ui.composables.DeviceList
@@ -105,7 +110,7 @@ class MainActivity : ComponentActivity() {
         devices.value = newDevicesState
         scope.launch {
             retrieveSpeakerLimits()
-            val newDevicesWithName = newDevices.map { it.retrieveIdentity() }
+            val newDevicesWithName = newDevicesState.map { it.retrieveIdentity() }
             devices.value = newDevicesWithName
         }
     }
@@ -226,7 +231,9 @@ fun MainScreen(
 
             deviceSearchButton(
                 devices,
-                modifier = Modifier.align(Alignment.End).padding(bottom = 16.dp),
+                modifier = Modifier
+                    .align(Alignment.End)
+                    .padding(bottom = 16.dp),
                 onDeviceSearchClick = onDeviceSearchClick
             )
             Row (

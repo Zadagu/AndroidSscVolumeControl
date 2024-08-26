@@ -20,8 +20,8 @@ import io.github.zadagu.sscvolumecontrol.ssc.Device
 import io.github.zadagu.sscvolumecontrol.ssc.wrapElement
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.coroutines.launch
+import kotlinx.serialization.json.JsonPrimitive
 
 const val channelId = "VolumeServiceChannel"
 
@@ -97,7 +97,7 @@ class VolumeService : Service() {
             Log.i("VolumeService", "Volume changed to $currentVolume, setting target volume to $targetVolume")
 
             val newControlledDevices = getControlledDevices(context)
-            if (newControlledDevices != controlledDevices) {
+            if (newControlledDevices.map { it.ipv6Address } != controlledDevices.map { it.ipv6Address }) {
                 // Since the connection instances are bound to the devices, we only want to update the list of devices, if there really is a change
                 // Otherwise, we would have to re-establish the connection to the devices.
                 controlledDevices = newControlledDevices

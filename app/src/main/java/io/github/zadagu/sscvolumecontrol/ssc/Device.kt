@@ -23,10 +23,6 @@ class Device(
     }
     val connection = AutoManagingConnection(connectFn)
 
-    override fun equals(other: Any?): Boolean {
-        return this.ipv6Address == (other as Device).ipv6Address
-    }
-
     suspend fun <R> withConnection(fn: suspend (connection: SscConnection) -> R): R {
         return connection.withConnection(fn)
     }
