@@ -8,10 +8,12 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
@@ -229,13 +231,19 @@ fun MainScreen(
             )
             DeviceList(devices, null)
 
-            deviceSearchButton(
-                devices,
-                modifier = Modifier
-                    .align(Alignment.End)
-                    .padding(bottom = 16.dp),
-                onDeviceSearchClick = onDeviceSearchClick
-            )
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Start,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                deviceSearchButton(
+                    devices,
+                    modifier = Modifier
+                        .padding(bottom = 16.dp),
+                    onDeviceSearchClick = onDeviceSearchClick
+                )
+            }
+
             Row (
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier.padding(bottom = 32.dp)
